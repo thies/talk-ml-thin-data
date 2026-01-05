@@ -1,0 +1,361 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Thies Lindenthal: Applied ML and New Data</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+		<link rel="stylesheet" href="tweaks.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section data-background-image="imgs/door.jpg">
+						<h2><span class="transparent70">Machine Learning<br><br>&amp; (new) data</span></h2>
+						<h2><span class="subtitle transparent70">Thies Lindenthal</span></h2>
+						<p><span class="subtitle transparent70"> Department of Land Economy / University of Cambridge</span><br>
+						<span class="subtitle transparent70">E-mail: htl24@cam.ac.uk / Twitter: @ThiesLindenthal</span></p>
+			</section>
+
+
+
+				<section data-markdown data-background-image="imgs/beach.jpg">
+					<textarea data-template>
+						## Research Agenda(s)<span class="subtitle"><br/>What are colleagues working on?</span>
+
+						*  Applied Machine Learning approaches are advancing at rapid speed. How to make best use of the ever-expanding toolbox?
+
+						1. Reduce cost in data collection: harvest features that were out of reach in the past
+						2. Analyse data in new ways: high-dimensional data, big data, sparse data
+						3. Methods, systems and algorithms: analyse the findings beyond raw predictive power.
+						4. Incremental advances add up: entirely new research directions possible
+					</textarea>
+				</section>
+
+				<section class="white" data-background-color="#ffffff">
+					<h2>Typical Toolbox<span class="subtitle"><br />Computer vision + ML classification + trad. econometrics<br /></span></h2>
+					<img src="imgs/research_feature_vectors.png">
+				</section>
+
+
+				<section data-background-image="imgs/romsey_road.jpg">
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<h2><span class="darkonlight">1: Reduce costs</span>
+						<span class="subtitle darkonlight"><br />Teach computers to “see”. E.g. Infer quality or style attributes from street-level images (e.g. Lindenthal &amp; Johnson, 2021)</span></h2>
+				</section>
+
+
+				<section data-markdown data-background-image="imgs/fake_victorian.jpg" >
+					<textarea data-template>
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+
+						## <span class="darkonlight">old models with New data</span><br><span class="subtitle darkonlight"></span>
+
+						* <span class="darkonlight">Proof of concept: No price premium for new buildings in traditional styles detectable.</span>
+					</textarea>
+				</section>
+
+
+				<section data-background-image="imgs/styles_uk.png">
+					<h2><span class="darkonlight">Large scale, low cost</span><span class="subtitle darkonlight"><br />Collecting images/feature vectors of each building in the UK.</span></h2>
+				</section>
+
+
+				<section data-background-image="imgs/romsey_road_1.jpg">
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+
+					<h2><span class="darkonlight">Electric cars!</span>
+						<span class="subtitle darkonlight"><br /></span></h2>
+				</section>
+
+				<section data-background-image="imgs/romsey_road_2.jpg">
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+
+					<h2><span class="darkonlight">Solar panels!</span>
+						<span class="subtitle darkonlight"><br /></span></h2>
+				</section>
+
+				<section data-background-image="imgs/romsey_road_3.jpg">
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+
+					<h2><span class="darkonlight">Loft conversion!</span>
+						<span class="subtitle darkonlight"><br /></span></h2>
+				</section>
+
+
+				<section data-markdown >
+					<textarea data-template>
+						## New Models <span class="subtitle"><br/>2. New models: Moving away from linear regressions</span>
+						<div class="figure">
+							<p class="title">Property values, Phoenix (2018)</p>
+						<img src="imgs/surface_2018_cropped.png" height=450>
+						<p class="source">Source: Clapp &amp; Lindenthal, JHE (2022/3)</p>
+					</div>
+					</textarea>
+				</section>
+
+
+				<section data-markdown >
+					<textarea data-template>
+						## No Models? <span class="subtitle"><br/>Let the machine pick the best model? No more model risk?</span>
+
+						* <mark>"Previous studies for pricing real estate [...] rely on classical parametrical models, which have the drawbacks of [...] unrealistic model assumptions. However,
+machine learning is a model-free approach that can overcome these drawbacks [...]"</mark>
+
+					</textarea>
+				</section>
+
+
+
+				<section data-markdown >
+					<textarea data-template>
+						## 3. Understanding the methods/data<span class="subtitle"><br/>Explainable AI: Fuerst et. al (2022). Wan &amp; Lindenthal (2022/3)</span>
+
+						* If all you need is predictive power then go ahead, increase training data, tweak models...
+						* Can we interpret the predicted values? Communicate what is causing an outcome?
+							- Automatic valuations / property taxes
+							- Causal inference? At least a little bit?
+						* How to ensure we are not breaking any laws (and not unethical in the first place)?
+							- Discrimination based on protected characteristics is illegal!
+							- Mortgage applications, tenant screening, valuations.
+
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Amazon failed (I)<span class="subtitle"><br/>If even a tech giant struggles, caution might be warranted...</span>
+
+						<img src="imgs/amazon1.png" height=450>
+					</textarea>
+				</section>
+				<section data-markdown >
+					<textarea data-template>
+						## Amazon failed (II)<span class="subtitle"><br/>Racist face recognition systems...</span>
+
+						<img src="imgs/amazon2.png" height=450>
+					</textarea>
+				</section>
+				<section data-markdown >
+					<textarea data-template>
+						## Microsoft failed<span class="subtitle"><br/>Racist chatbot...</span>
+
+						<img src="imgs/microsoft.png" height=450>
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Deliveroo failed<span class="subtitle"><br/>Companies are liable for biased ML systems.</span>
+						<img src="imgs/deliveroo.png" height=450>
+					</textarea>
+				</section>
+
+				<section data-markdown >
+					<textarea data-template>
+						## Predictive power not good enough!<span class="subtitle"><br/>Transparency and due diligence needed</span>
+
+						* _System testing_ is a concept from software engineering:
+							- While developing a system, engineers define tests that check whether the outcome remains in pre-defined range.
+						* Training an ML system is software development.
+							- Follow best practices, define and implement system tests.
+							- Such tests should be independent of the training process.
+							- Tests are customised to task at hand. Lindenthal/Wan (REE, 2022) give two examples.
+
+					</textarea>
+				</section>
+
+
+				<section data-markdown >
+					<textarea data-template>
+						## Correct cues picked up?<span class="subtitle"><br/>Classification differs from AVM: Shift in focus?</span>
+
+						* Wealth confounding factor for car brands and home values? Externalities?
+						<p><img src="imgs/house_cars.jpg" height=400><p>
+					</textarea>
+				</section>
+
+
+				<section data-markdown data-background-video="imgs/PXL_20210310_232954432.mp4" data-background-video-loop data-background-video-muted>
+					<textarea data-template>
+						## <span class="transparent70"> 4. New research questions</span><span class=" transparent70 subtitle"><br/>What is it that people pay attention to when looking at real estate?</span>
+
+						* <span class="transparent70">New project with Carolin Schmidt &amp; Wayne Wan</span>
+						* <span class="transparent70">Let people like/dislike photos of houses</span>
+						* <span class="transparent70">Train an ML model based on personal tastes: Digital twin (sort of).</span>
+						* <span class="transparent70">Which features are attractive? Homogeneous tastes?</span>
+						* <span class="transparent70">Do revealed preferences match self-reported preferences?</span>
+						* <span class="transparent70">Participate: https://4walls.cremll.com</span>
+
+					</textarea>
+				</section>
+
+
+				<section data-markdown>
+					<textarea data-template>
+						## Incredible diversity<span class="subtitle"><br/>We had expected a bimodal distribution &mdash; but tastes differ a lot!</span>
+						<img src="imgs/hist_likes_training_data_many_responses.png" height="500">
+					</textarea>
+				</section>
+
+
+				<section data-markdown>
+					<textarea data-template>
+						## Mostly positive<span class="subtitle"><br/>Greenery, high quality material, historic buildings.</span>
+						<img src="imgs/example_like.png" height="500">
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Mostly negative<span class="subtitle"><br/>Neglected, low quality, ad-hoc styles.</span>
+						<img src="imgs/example_dislike.png" height="500">
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Mixed responses<span class="subtitle"><br/>These are really interesting: Where do we differ?</span>
+						<img src="imgs/example_mixed.png" height="500">
+					</textarea>
+				</section>
+
+
+				<section data-markdown>
+					<textarea data-template>
+						## Clusters of tastes?<span class="subtitle"><br/>No strong clusters detected.</span>
+						<img src="imgs/kmeans.png" height="500">
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Still, we can predict taste<span class="subtitle"><br/>Personalised classifiers effectively learn from our swipes.</span>
+
+						<img src="imgs/precision.png" height="350">
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Searching ground truth<span class="subtitle"><br/>Participants are not consistent in their rankings</span>
+						<div class="figure">
+							<p class="title">Rankings become more critical in time</p>
+						<img src="imgs/share_likes_in_time.png" height="380">
+					</div>
+					</textarea>
+				</section>
+
+				<section>
+				<section data-markdown>
+					<textarea data-template>
+						## Black box vs. black box<span class="subtitle"><br/></span>
+						<img src="imgs/consistency_table.png" height=500>
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Negative trend<span class="subtitle"><br/>Significant decline in likes</span>
+						<img src="imgs/consistency_table_2.png" height=500>
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## ML classifiers...<span class="subtitle"><br/>Can explain 2/3 of all likes well...</span>
+						<img src="imgs/consistency_table_3.png" height=500>
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## ML classifications...<span class="subtitle"><br/> Humans are more predictable later. </span>
+						<img src="imgs/consistency_table_4.png" height=500>
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Swayed by trees.<span class="subtitle"><br/>But only in beginning. Density effect consistent.</span>
+						<img src="imgs/consistency_table_5.png" height=500>
+					</textarea>
+				</section>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+					## Findings<span class="subtitle"><br/>The real black box: is it between our ears?</span>
+					* Personalised classifiers are in reach: They can be trained with limited effort from participant (20 min?)
+					* Predictions are not perfect &mdash; but they are consistent.
+					* ML helps to understand how we look at the built environment.
+
+					<div class="figure">
+					<img src="imgs/icecream.jpg" height=300>
+				</div>
+				</textarea>
+			</section>
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				transition: "none",
+				width: 1244,
+				height: 700,
+				margin: 0.1,
+				hash: true,
+				math: {
+					mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+					config: 'TeX-AMS_HTML-full',
+					// pass other options into `MathJax.Hub.Config()`
+					TeX: { Macros: { RR: "{\\bf R}" } }
+				},
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
+			});
+		</script>
+	</body>
+</html>
