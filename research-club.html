@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Machine Learning Approaches for Thin Data</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+		<link rel="stylesheet" href="tweaks.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+
+
+				<section data-markdown data-background-image="imgs/loop.gif">
+					<textarea data-template>
+
+						<br><br>
+						<br><br>
+						<br><br>
+
+						## <p><mark>Machine Learning Approaches for</mark></p><p><mark>Thin Real Estate Data</mark></p><span class="subtitle transparent50"><br/><mark>Thies Lindenthal / htl24@cam.ac.uk / March 18, 2026</mark></span>
+
+
+					
+					</textarea>
+				</section>
+
+				<section data-markdown data-background-image='imgs/schmidt70.jpg' data-background-size="contain">
+					<textarea data-template>
+						## <br><br><br><br><br><br><br> <mark></mark> <span class="subtitle"><br><br/><mark>*"If you have visions, you should see a doctor."* <br>Helmut Schmidt</mark></span>
+
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## 1. More is more! <span class="subtitle"><br/>Preserve as much data as possible (joint work with Kahshin Leow)</span>
+						
+						* Stylised example: dataset with 50 obs. and 50 features. Features miss value in 3% of observations.
+						
+						<div class='figure'>
+							<img src="imgs/missing-data-matrix-1.svg" height=450>
+						</div>
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Even few Missing Values hurt!<span class="subtitle"><br/>In traditional regressions, we typically face a dilemma: Sacrifice obs or features?</span>
+						
+						* Same data, rows and columns ordered by row sums and occurance of first NA.
+						
+						<div class='figure'>
+							<img src="imgs/missing-data-matrix-2.svg" height=450>
+						</div>
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Modelling choices<span class="subtitle"><br/>Maximise rows?</span>
+						
+						* In (commercial) real estate, we often have relatively small samples. Can we afford to lose any obs?
+						
+						<div class='figure'>
+							<img src="imgs/missing-data-matrix-3.svg" height=450>
+						</div>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Modelling choices<span class="subtitle"><br/>Or preserve feature richness?</span>
+						
+						* Real estate is high-dimensional. It's a waste to lose informative features. 
+						
+						<div class='figure'>
+							<img src="imgs/missing-data-matrix-4.svg" height=450>
+						</div>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Compromises? Mitigation?<span class="subtitle"><br/>Balance height/width of dataset? Focus on most relevant obs and features?</span>
+						
+						* Adjust functional form? Interpolate? Strategic data collection? 
+						* Entire textbooks cover topic: "Statistical Analysis with Missing Data" (Little and Rubin, 2019).
+						
+						<div class='figure'>
+							<img src="imgs/missing-data-matrix-5.svg" height=450>
+						</div>
+					</textarea>
+				</section>
+
+
+				<section data-markdown>
+					<textarea data-template>
+						## Real data: NCREIF CRE SALES<span class="subtitle"><br/>14,470 sales 1978–2020. 60 asset-level covariates</span>
+						
+						* Key variables: age, net inc., cap-ex, loan interest, % leased, net rentable area, cap rate, prop. type, manager group ID, MSA
+						
+						<div class='figure'>
+							<img src="imgs/ncreif-na-table.svg" height=600>
+						</div>
+					</textarea>
+				</section>
+
+
+				<section data-markdown>
+					<textarea data-template>
+						## Strategic reporting?<span class="subtitle"><br/>"Missingness" is not constant in time—and dynamics differ across features.</span>
+						
+						* Similar to Hughes & Nichols (2005): "No news is bad news: Monitoring, risk, and stale financial performance in commercial real estate"
+						
+						<div class='figure'>
+							<img src="imgs/ncreif-time-trends.svg" height=400>
+						</div>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						<div class='figure'>
+							<img src="imgs/ncreif-time-trends.svg" height=650>
+						</div>
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Sparsity-aware ML Approaches<span class="subtitle"><br/>Tree example: XGBoost</span>
+						
+						* Forests of trees with/without features/obs + default directions when the feature needed for the split is missing.
+						
+						<div class='figure'>
+							<img src="imgs/ncreif-tree-xgboost.png" height=400>
+						</div>
+
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Model horse race<span class="subtitle"><br/>Sparsity-aware tree models benefit from keeping obs/features: More is more!</span>
+						
+						<div class='figure'>
+							<img src="imgs/ncreif-model-comp.svg" height=570>
+						</div>
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Compromises...<span class="subtitle"><br/>What if we drop the 10 features with the highest rates of NA's?</span>
+						
+						* Model 1 benefits from A LOT more training data. Model 3 has fewer features to train on.
+						<div class='figure'>
+							<img src="imgs/ncreif-reduced.svg" height=350>
+						</div>
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Feature importance<span class="subtitle"><br/>Ranking of features changes when NAs are kept (robustness of many xAI attempts?) </span>
+						
+						<div class='figure'>
+							<img src="imgs/ncreif-feature-importance.svg" height=350>
+						</div>
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Marginal price effects <span class="subtitle"><br/>Marginal association between expected price and asset-level features</span>
+						
+						* Lagged appraisal values seem to matter either way... Age effects differ!
+						<div class='figure'>
+							<img src="imgs/ncreif-feature-effects.svg" height=350>
+						</div>
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Marginal price effects <span class="subtitle"><br/>Marginal association between expected price and asset-level features</span>
+						
+						* Performance drops for all models if lagged MV is removed (makes sense). Drop is less drastic for Model 1 as obs. increase.
+						<div class='figure'>
+							<img src="imgs/ncreif-no-mv.svg" height=350>
+						</div>
+					</textarea>
+				</section>
+
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				transition: "none",
+				width: 1244,
+				height: 700,
+				margin: 0.1,
+				hash: true,
+				math: {
+					mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+					config: 'TeX-AMS_HTML-full',
+					// pass other options into `MathJax.Hub.Config()`
+					TeX: { Macros: { RR: "{\\bf R}" } }
+				},
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
+			});
+		</script>
+	</body>
+</html>
